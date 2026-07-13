@@ -1,0 +1,54 @@
+@model DailyTask
+
+@if (User.IsInRole("Admin"))
+{
+    <div>
+        <label asp-for="StudentProfileId"></label>
+        <select asp-for="StudentProfileId" class="form-select" asp-items="ViewBag.StudentProfileId"></select>
+        <span asp-validation-for="StudentProfileId" class="text-danger"></span>
+    </div>
+}
+<div>
+    <label asp-for="TaskDate"></label>
+    <input asp-for="TaskDate" type="date" class="form-control" />
+</div>
+<div>
+    <label asp-for="Attendance"></label>
+    <select asp-for="Attendance" class="form-select">
+        <option>Present</option>
+        <option>Absent</option>
+        <option>Late</option>
+    </select>
+</div>
+<div>
+    <label asp-for="TopicCovered"></label>
+    <input asp-for="TopicCovered" class="form-control" />
+    <span asp-validation-for="TopicCovered" class="text-danger"></span>
+</div>
+<div>
+    <label asp-for="TaskTitle"></label>
+    <input asp-for="TaskTitle" class="form-control" />
+</div>
+<div>
+    <label asp-for="Status"></label>
+    <select asp-for="Status" class="form-select">
+        <option>Pending</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+    </select>
+</div>
+<div>
+    <label asp-for="HoursSpent"></label>
+    <input asp-for="HoursSpent" class="form-control" />
+</div>
+<div>
+    <label asp-for="StudentNotes"></label>
+    <textarea asp-for="StudentNotes" class="form-control" rows="3"></textarea>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <div>
+        <label asp-for="MentorFeedback"></label>
+        <textarea asp-for="MentorFeedback" class="form-control" rows="3"></textarea>
+    </div>
+}

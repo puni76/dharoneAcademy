@@ -1,0 +1,36 @@
+@model StudentProfile
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<div class="panel">
+    <h2>@Model.User?.FullName</h2>
+    <div class="detail-grid">
+        <div><span>Enrollment</span><strong>@Model.EnrollmentId</strong></div>
+        <div><span>Stream</span><strong>@Model.CourseStream</strong></div>
+        <div><span>Batch</span><strong>@Model.BatchName</strong></div>
+        <div><span>College</span><strong>@(Model.CollegeName ?? "—")</strong></div>
+        <div><span>Email</span><strong>@Model.User?.Email</strong></div>
+        <div><span>Phone</span><strong>@Model.User?.Phone</strong></div>
+    </div>
+</div>
+
+<div class="panel">
+    <h2>Daily tasks</h2>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead><tr><th>Date</th><th>Topic</th><th>Status</th><th>Hours</th></tr></thead>
+            <tbody>
+            @foreach (var t in Model.DailyTasks.OrderByDescending(x => x.TaskDate))
+            {
+                <tr>
+                    <td>@t.TaskDate.ToString("dd MMM yyyy")</td>
+                    <td>@t.TopicCovered</td>
+                    <td>@t.Status</td>
+                    <td>@t.HoursSpent</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

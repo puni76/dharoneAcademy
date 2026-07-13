@@ -1,0 +1,51 @@
+@model ContactEnquiry
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="page-hero" style="--page-bg:url('@Url.Content("~/images/gallery-3.jpg")')">
+    <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Talk to admissions</h1>
+        <p>+91 82174 15668 · dharoneacademy26@gmail.com · Bengaluru</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container contact-grid">
+        <form asp-action="Index" method="post" class="form-panel form-stack">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="CourseInterest"></label>
+                <input asp-for="CourseInterest" class="form-control" value="3-Month Internship" />
+            </div>
+            <div>
+                <label asp-for="Message"></label>
+                <textarea asp-for="Message" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn-gold lg">Send enquiry</button>
+        </form>
+        <div class="contact-aside">
+            <img src="~/images/flyer.png" alt="Dharone Academy flyer" />
+            <p>Scan Instagram via academy flyer QR · @@dharonetechnologies_2026</p>
+        </div>
+    </div>
+</section>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

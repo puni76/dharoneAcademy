@@ -1,0 +1,49 @@
+@model IEnumerable<DailyTask>
+@{
+    ViewData["Title"] = "Daily Tasks";
+}
+
+@section TopActions {
+    <a class="btn-gold" asp-action="Create">+ Add task</a>
+}
+
+<form method="get" class="filter-bar">
+    <input type="date" name="date" value="@ViewData["FilterDate"]" class="form-control" />
+    <button class="btn-navy" type="submit">Filter</button>
+    <a class="btn-ghost" asp-action="Index">Clear</a>
+</form>
+
+<div class="table-wrap panel">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Student</th>
+                <th>Topic</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Attendance</th>
+                <th>Hours</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.TaskDate.ToString("dd MMM yyyy")</td>
+                <td>@t.StudentProfile?.User?.FullName</td>
+                <td>@t.TopicCovered</td>
+                <td>@t.TaskTitle</td>
+                <td><span class="pill @t.Status.Replace(" ", "").ToLower()">@t.Status</span></td>
+                <td>@t.Attendance</td>
+                <td>@t.HoursSpent</td>
+                <td class="row-actions">
+                    <a asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                    <a class="danger" asp-action="Delete" asp-route-id="@t.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

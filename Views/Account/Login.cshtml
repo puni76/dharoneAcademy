@@ -1,0 +1,39 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Sign In";
+    Layout = "_Layout";
+}
+
+<section class="auth-page">
+    <div class="auth-visual" style="background-image:url('@Url.Content("~/images/auth.jpg")')">
+        <div class="auth-visual-copy">
+            <img src="~/images/logo.png" alt="Dharone Academy" />
+            <h2>Welcome back to the portal</h2>
+            <p>Track daily tasks, attendance, and mentor feedback.</p>
+        </div>
+    </div>
+    <div class="auth-panel">
+        <h1>Sign in</h1>
+        <p class="muted">Access your Dharone Academy dashboard.</p>
+        <form asp-action="Login" method="post" class="form-stack">
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" placeholder="you@email.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <label class="check"><input asp-for="RememberMe" /> Remember me</label>
+            <button type="submit" class="btn-gold lg wide">Sign in</button>
+        </form>
+        <p class="switch">New student? <a asp-action="Register">Create account</a></p>
+        <p class="demo">Admin: admin@dharoneacademy.com / Admin@123<br />Student: student@dharoneacademy.com / Student@123</p>
+    </div>
+</section>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

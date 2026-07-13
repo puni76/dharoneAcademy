@@ -1,0 +1,55 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@section TopActions {
+    <a class="btn-gold" asp-controller="DailyTasks" asp-action="Create">+ New daily task</a>
+}
+
+<p class="portal-greeting">Welcome, <strong>@Model.UserName</strong> · @Model.Role</p>
+
+<div class="stat-grid">
+    <article><span>Active students</span><strong>@Model.TotalStudents</strong></article>
+    <article><span>Present today</span><strong>@Model.PresentToday</strong></article>
+    <article><span>Tasks pending</span><strong>@Model.TasksPending</strong></article>
+    <article><span>Tasks completed</span><strong>@Model.TasksCompleted</strong></article>
+    @if (Model.Role == "Admin")
+    {
+        <article><span>Open enquiries</span><strong>@Model.OpenEnquiries</strong></article>
+    }
+</div>
+
+<div class="panel">
+    <div class="panel-head">
+        <h2>Recent daily tasks</h2>
+        <a asp-controller="DailyTasks" asp-action="Index">View all</a>
+    </div>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Student</th>
+                    <th>Topic</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var t in Model.RecentTasks)
+            {
+                <tr>
+                    <td>@t.TaskDate.ToString("dd MMM yyyy")</td>
+                    <td>@t.StudentProfile?.User?.FullName</td>
+                    <td>@t.TopicCovered</td>
+                    <td>@t.TaskTitle</td>
+                    <td><span class="pill @t.Status.Replace(" ", "").ToLower()">@t.Status</span></td>
+                    <td>@t.Attendance</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dharone Academy — 3-month internship & training. Bridging academic knowledge to industry demands." />
+    <title>@ViewData["Title"] | Dharone Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+@{
+    var ctrl = ViewContext.RouteData.Values["controller"]?.ToString();
+    var act = ViewContext.RouteData.Values["action"]?.ToString();
+    var isPortal = User.Identity?.IsAuthenticated == true &&
+        (ctrl is "Dashboard" or "Students" or "DailyTasks" || (ctrl == "Contact" && act == "Enquiries"));
+}
+<body class="@(isPortal ? "portal-body" : "site-body")">
+@if (isPortal)
+{
+    <div class="portal-shell">
+        <aside class="portal-sidebar">
+            <a class="brand-lockup" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png" alt="Dharone Academy" class="brand-logo" />
+            </a>
+            <nav class="portal-nav">
+                <a class="portal-link @(ctrl == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                <a class="portal-link @(ctrl == "DailyTasks" ? "active" : "")" asp-controller="DailyTasks" asp-action="Index">Daily Tasks</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="portal-link @(ctrl == "Students" ? "active" : "")" asp-controller="Students" asp-action="Index">Students</a>
+                    <a class="portal-link @(ctrl == "Contact" && act == "Enquiries" ? "active" : "")" asp-controller="Contact" asp-action="Enquiries">Enquiries</a>
+                }
+                <a class="portal-link" asp-controller="Home" asp-action="Index">Public Site</a>
+            </nav>
+            <div class="portal-footer">
+                <div class="user-meta">
+                    <strong>@User.Identity?.Name</strong>
+                    <span>@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span>
+                </div>
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn-outline-light-solid">Sign out</button>
+                </form>
+            </div>
+        </aside>
+        <div class="portal-main">
+            <header class="portal-top">
+                <h1>@ViewData["Title"]</h1>
+                <div>@RenderSection("TopActions", required: false)</div>
+            </header>
+            <main class="portal-content">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="flash success">@TempData["Success"]</div>
+                }
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+}
+else
+{
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand-lockup" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png" alt="Dharone Academy" class="brand-logo" />
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Menu" data-nav-toggle>
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="site-nav" data-nav>
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="Home" asp-action="Program">Program</a>
+                <a asp-controller="Home" asp-action="Curriculum">Curriculum</a>
+                <a asp-controller="Home" asp-action="Career">Career</a>
+                <a asp-controller="Home" asp-action="About">About</a>
+                <a asp-controller="Contact" asp-action="Index">Contact</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a class="btn-gold" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login">Sign in</a>
+                    <a class="btn-gold" asp-controller="Account" asp-action="Register">Join Now</a>
+                }
+            </nav>
+        </div>
+    </header>
+    <main>
+        @if (TempData["Success"] != null)
+        {
+            <div class="container"><div class="flash success mt-3">@TempData["Success"]</div></div>
+        }
+        @RenderBody()
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <img src="~/images/logo.png" alt="Dharone Academy" class="footer-logo" />
+                <p class="footer-tag">Learn • Build • Innovate • Succeed</p>
+                <p>Bridging academic knowledge to industry demands with live, practical projects.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <a asp-controller="Home" asp-action="Program">Internship Program</a>
+                <a asp-controller="Home" asp-action="Curriculum">Curriculum</a>
+                <a asp-controller="Home" asp-action="Career">Career Building</a>
+                <a asp-controller="Contact" asp-action="Index">Contact</a>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>+91 82174 15668</p>
+                <p>dharoneacademy26@gmail.com</p>
+                <p>www.dharoneacademy.com</p>
+                <p>Bengaluru, Karnataka, India</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© @DateTime.Now.Year Dharone Technologies Pvt Ltd. All rights reserved.</span>
+        </div>
+    </footer>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,14 @@
+@model DailyTask
+@{
+    ViewData["Title"] = "Add Daily Task";
+}
+
+<form asp-action="Create" method="post" class="form-panel form-stack">
+    <partial name="_TaskForm" />
+    <div class="actions">
+        <button class="btn-gold" type="submit">Save task</button>
+        <a class="btn-ghost" asp-action="Index">Cancel</a>
+    </div>
+</form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

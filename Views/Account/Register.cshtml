@@ -1,0 +1,64 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Join Academy";
+}
+
+<section class="auth-page">
+    <div class="auth-visual" style="background-image:url('@Url.Content("~/images/classroom.jpg")')">
+        <div class="auth-visual-copy">
+            <img src="~/images/logo.png" alt="Dharone Academy" />
+            <h2>Start your internship journey</h2>
+            <p>Learn • Build • Innovate • Succeed</p>
+        </div>
+    </div>
+    <div class="auth-panel">
+        <h1>Create account</h1>
+        <p class="muted">Register as a Dharone Academy student.</p>
+        <form asp-action="Register" method="post" class="form-stack">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="CourseStream"></label>
+                <select asp-for="CourseStream" class="form-select">
+                    <option>BCA</option>
+                    <option>MCA</option>
+                    <option>BE</option>
+                    <option>Diploma</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="CollegeName"></label>
+                <input asp-for="CollegeName" class="form-control" />
+            </div>
+            <div>
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn-gold lg wide">Join now</button>
+        </form>
+        <p class="switch">Already enrolled? <a asp-action="Login">Sign in</a></p>
+    </div>
+</section>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

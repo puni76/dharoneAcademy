@@ -1,0 +1,43 @@
+@model IEnumerable<StudentProfile>
+@{
+    ViewData["Title"] = "Students";
+}
+
+<form method="get" class="filter-bar">
+    <input class="form-control" name="search" value="@ViewData["Search"]" placeholder="Search enrollment, name, email..." />
+    <button class="btn-navy" type="submit">Search</button>
+</form>
+
+<div class="table-wrap panel">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Enrollment</th>
+                <th>Name</th>
+                <th>Stream</th>
+                <th>Batch</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.EnrollmentId</td>
+                <td>@s.User?.FullName</td>
+                <td>@s.CourseStream</td>
+                <td>@s.BatchName</td>
+                <td>@s.User?.Phone</td>
+                <td>@(s.IsActive ? "Active" : "Inactive")</td>
+                <td class="row-actions">
+                    <a asp-action="Details" asp-route-id="@s.Id">View</a>
+                    <a asp-action="Edit" asp-route-id="@s.Id">Edit</a>
+                    <a class="danger" asp-action="Delete" asp-route-id="@s.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

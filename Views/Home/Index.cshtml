@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero">
+    <div class="hero-media" style="background-image:url('@Url.Content("~/images/hero.jpg")')"></div>
+    <div class="hero-shade"></div>
+    <div class="container hero-content">
+        <img src="~/images/logo.png" alt="Dharone Academy" class="hero-brand" />
+        <p class="eyebrow">3-Month Internship &amp; Training</p>
+        <h1>Bridging the gap: academic knowledge to industry demands.</h1>
+        <p class="lead">From classroom to career with live, practical projects. Perfect for BCA, MCA, BE &amp; Diploma students.</p>
+        <div class="hero-cta">
+            <a class="btn-gold lg" asp-controller="Account" asp-action="Register">Join the Program</a>
+            <a class="btn-ghost-light lg" asp-controller="Home" asp-action="Program">View Program</a>
+        </div>
+        <div class="hero-meta">
+            <span>Duration: 3 Months</span>
+            <span>Investment: ₹30K</span>
+            <span>Sessions from 6:00 PM</span>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div class="split-copy">
+            <p class="eyebrow gold">Why Dharone Academy</p>
+            <h2>Official internship certificate through Dharone Technologies Pvt Ltd.</h2>
+            <p>Daily tasks &amp; updates, industry mentors, and corporate-level capstone projects designed to make you job-ready.</p>
+            <ul class="checklist">
+                <li>Daily sessions from 6:00 PM — ideal for students</li>
+                <li>Live project mentorship &amp; portfolio building</li>
+                <li>Resume, LinkedIn &amp; mock interview support</li>
+                <li>Placement assistance with real industry alignment</li>
+            </ul>
+            <a class="btn-navy" asp-controller="Contact" asp-action="Index">Talk to admissions</a>
+        </div>
+        <div class="split-visual">
+            <img src="~/images/classroom.jpg" alt="Students learning in classroom" />
+        </div>
+    </div>
+</section>
+
+<section class="section tint">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow gold">Tech stack</p>
+            <h2>What you will master</h2>
+        </div>
+        <div class="stack-grid">
+            <article>
+                <h3>Front-End</h3>
+                <p>HTML5 · CSS3 · JavaScript · React JS</p>
+            </article>
+            <article>
+                <h3>Back-End</h3>
+                <p>.NET · ASP.NET Core MVC</p>
+            </article>
+            <article>
+                <h3>Database</h3>
+                <p>SQL Server · Practical CRUD systems</p>
+            </article>
+            <article>
+                <h3>Delivery</h3>
+                <p>Live projects · Daily tracker · Mentorship</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow gold">Campus to career</p>
+            <h2>Gallery &amp; learning culture</h2>
+        </div>
+        <div class="gallery">
+            <img src="~/images/gallery-1.jpg" alt="Team collaboration" />
+            <img src="~/images/coding.jpg" alt="Coding practice" />
+            <img src="~/images/mentor.jpg" alt="Mentor guidance" />
+            <img src="~/images/project.jpg" alt="Project presentation" />
+            <img src="~/images/career.jpg" alt="Career workshop" />
+            <img src="~/images/gallery-2.jpg" alt="Workshop session" />
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container cta-inner">
+        <div>
+            <h2>Ready to move from classroom to career?</h2>
+            <p>Enroll in the 3-month internship program and start building production-ready skills.</p>
+        </div>
+        <a class="btn-gold lg" asp-controller="Account" asp-action="Register">Apply Now</a>
+    </div>
+</section>

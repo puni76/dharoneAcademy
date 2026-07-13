@@ -1,0 +1,14 @@
+@model StudentProfile
+@{
+    ViewData["Title"] = "Delete Student";
+}
+
+<div class="form-panel">
+    <h2>Delete @Model.User?.FullName?</h2>
+    <p>This removes the student account and related daily tasks.</p>
+    <form asp-action="Delete" method="post" class="actions">
+        <input type="hidden" asp-for="Id" />
+        <button class="btn-danger" type="submit">Delete</button>
+        <a class="btn-ghost" asp-action="Index">Cancel</a>
+    </form>
+</div>

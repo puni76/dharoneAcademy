@@ -1,0 +1,33 @@
+@model StudentProfile
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<form asp-action="Edit" method="post" class="form-panel form-stack">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>Full name</label>
+        <input name="User.FullName" value="@Model.User?.FullName" class="form-control" />
+    </div>
+    <div>
+        <label>Phone</label>
+        <input name="User.Phone" value="@Model.User?.Phone" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="CourseStream"></label>
+        <input asp-for="CourseStream" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="CollegeName"></label>
+        <input asp-for="CollegeName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="BatchName"></label>
+        <input asp-for="BatchName" class="form-control" />
+    </div>
+    <label class="check"><input asp-for="IsActive" /> Active</label>
+    <div class="actions">
+        <button class="btn-gold" type="submit">Save</button>
+        <a class="btn-ghost" asp-action="Index">Cancel</a>
+    </div>
+</form>

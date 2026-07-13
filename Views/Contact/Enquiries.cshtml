@@ -1,0 +1,45 @@
+@model IEnumerable<ContactEnquiry>
+@{
+    ViewData["Title"] = "Enquiries";
+}
+
+<div class="table-wrap panel">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Interest</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</td>
+                <td>@e.FullName</td>
+                <td>@e.Email</td>
+                <td>@e.Phone</td>
+                <td>@(e.CourseInterest ?? "—")</td>
+                <td>@e.Message</td>
+                <td>@(e.IsResolved ? "Resolved" : "Open")</td>
+                <td>
+                    @if (!e.IsResolved)
+                    {
+                        <form asp-action="Resolve" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@e.Id" />
+                            <button class="btn-navy sm" type="submit">Resolve</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
