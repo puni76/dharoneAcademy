@@ -55,24 +55,16 @@ const firebaseConfig = {
 };
 ```
 
-### 4) Paste values into the app
+### 4) Config is already wired
 
-Edit `appsettings.json` (or better: Azure App Settings / User Secrets):
+Web app **Dharone Academy Web** was created and values were placed in `appsettings.json`:
 
-```json
-"Firebase": {
-  "ProjectId": "dharoneacademy",
-  "AnalyticsEnabled": true,
-  "ApiKey": "AIza...",
-  "AuthDomain": "dharoneacademy.firebaseapp.com",
-  "StorageBucket": "dharoneacademy.appspot.com",
-  "MessagingSenderId": "123456789",
-  "AppId": "1:123456789:web:abcdef",
-  "MeasurementId": "G-XXXXXXXX"
-}
-```
+- App ID: `1:845517575019:web:22707a0cb2bf0b9decf22e`
+- Measurement ID: `G-LV6V344NZH`
 
-Until real values replace `YOUR_...` placeholders, Analytics stays **off** automatically (safe for local/dev).
+Analytics loads automatically on every page via `_FirebaseAnalytics.cshtml`.
+
+For Azure, you can still override the same keys with `Firebase__*` App Settings if needed.
 
 ### 5) Verify
 

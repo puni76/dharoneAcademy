@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dharone Academy</title>
-  <!-- Update this URL after Azure deploy -->
-  <meta http-equiv="refresh" content="3;url=https://YOURAPP.azurewebsites.net" />
+  <!-- Update after Azure deploy to your App Service URL -->
+  <meta http-equiv="refresh" content="4;url=https://www.dharoneacademy.com" />
   <style>
     :root { --navy:#002147; --gold:#c9a227; }
     body {
@@ -23,30 +23,29 @@
   <div class="card">
     <h1>Dharone Academy</h1>
     <p>Learn • Build • Innovate • Succeed</p>
-    <p>Firebase Hosting is the static entry. Redirecting to the production ASP.NET portal…</p>
+    <p>Redirecting to the academy portal…</p>
     <p>
-      <a href="https://YOURAPP.azurewebsites.net">Open portal</a> ·
+      <a href="https://www.dharoneacademy.com">www.dharoneacademy.com</a> ·
       <a href="https://console.firebase.google.com/project/dharoneacademy/">Firebase console</a>
     </p>
   </div>
 
-  <!-- Paste your Firebase web config when ready, then uncomment -->
-  <!--
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+
     const firebaseConfig = {
-      apiKey: "YOUR_KEY",
+      apiKey: "AIzaSyCZ7KiQydppwCaSuLz5o8k3Rrx8B8a7ZsM",
       authDomain: "dharoneacademy.firebaseapp.com",
       projectId: "dharoneacademy",
-      storageBucket: "dharoneacademy.appspot.com",
-      messagingSenderId: "YOUR_SENDER",
-      appId: "YOUR_APP_ID",
-      measurementId: "G-XXXX"
+      storageBucket: "dharoneacademy.firebasestorage.app",
+      messagingSenderId: "845517575019",
+      appId: "1:845517575019:web:22707a0cb2bf0b9decf22e",
+      measurementId: "G-LV6V344NZH"
     };
+
     const app = initializeApp(firebaseConfig);
-    logEvent(getAnalytics(app), "landing_view");
+    logEvent(getAnalytics(app), "landing_view", { source: "firebase_hosting" });
   </script>
-  -->
 </body>
 </html>

@@ -77,6 +77,8 @@ See **[docs/AZURE_FIREBASE_DEPLOYMENT.md](docs/AZURE_FIREBASE_DEPLOYMENT.md)** f
 
 Paste your Firebase web config into `appsettings.json` under `Firebase` (or Azure App Settings). Analytics stays disabled until placeholders are replaced.
 
+Firebase web app **Dharone Academy Web** is already registered on project `dharoneacademy` and wired in `appsettings.json` (`measurementId`: `G-LV6V344NZH`).
+
 Deploy static Firebase placeholder:
 
 ```bash
