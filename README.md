@@ -61,10 +61,21 @@ On first run the app creates the database and seeds demo data.
 
 [Firebase Hosting](https://console.firebase.google.com/project/dharoneacademy/) is excellent for **static** sites. It does **not** run ASP.NET Core + SQL Server.
 
+### Full Azure + Firebase guide
+
+See **[docs/AZURE_FIREBASE_DEPLOYMENT.md](docs/AZURE_FIREBASE_DEPLOYMENT.md)** for:
+
+- Firebase Analytics web app config
+- Azure SQL + App Service deploy
+- Custom domain / HTTPS
+- GitHub Actions publish profile setup
+
 ### Recommended production setup
 
 1. **ASP.NET app + SQL Server** → Azure App Service + Azure SQL (or Windows Server / IIS + SQL Server Express/Full)
-2. **Firebase** → Analytics, optional static landing mirror (`firebase-hosting/`), Storage for media later
+2. **Firebase** → Analytics on every page (`_FirebaseAnalytics.cshtml`), optional static landing mirror (`firebase-hosting/`)
+
+Paste your Firebase web config into `appsettings.json` under `Firebase` (or Azure App Settings). Analytics stays disabled until placeholders are replaced.
 
 Deploy static Firebase placeholder:
 
@@ -84,6 +95,9 @@ dotnet publish -c Release -o ./publish
 # Deploy publish folder to Azure App Service / IIS
 # Set ConnectionStrings__DefaultConnection in App Settings
 ```
+
+GitHub Actions workflow: `.github/workflows/azure-deploy.yml`  
+Secret required: `AZURE_WEBAPP_PUBLISH_PROFILE`
 
 ## Project structure
 

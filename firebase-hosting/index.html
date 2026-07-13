@@ -4,18 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dharone Academy</title>
-  <meta http-equiv="refresh" content="0;url=https://www.dharoneacademy.com" />
+  <!-- Update this URL after Azure deploy -->
+  <meta http-equiv="refresh" content="3;url=https://YOURAPP.azurewebsites.net" />
   <style>
-    body { font-family: system-ui, sans-serif; background: #002147; color: #fff; display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; padding: 2rem; }
-    a { color: #c9a227; font-weight: 700; }
+    :root { --navy:#002147; --gold:#c9a227; }
+    body {
+      font-family: system-ui, sans-serif; background: linear-gradient(145deg, #00152d, var(--navy));
+      color: #fff; display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; padding: 2rem;
+    }
+    a { color: var(--gold); font-weight: 700; }
+    .card {
+      max-width: 520px; background: rgba(255,255,255,.06); border: 1px solid rgba(201,162,39,.35);
+      border-radius: 18px; padding: 2rem;
+    }
   </style>
 </head>
 <body>
-  <div>
+  <div class="card">
     <h1>Dharone Academy</h1>
-    <p>This Firebase Hosting site is a static entry point.</p>
-    <p>The full ASP.NET Core portal must be hosted on Azure App Service, IIS, or Windows Server with SQL Server.</p>
-    <p>Firebase project: <a href="https://console.firebase.google.com/project/dharoneacademy/">dharoneacademy</a></p>
+    <p>Learn • Build • Innovate • Succeed</p>
+    <p>Firebase Hosting is the static entry. Redirecting to the production ASP.NET portal…</p>
+    <p>
+      <a href="https://YOURAPP.azurewebsites.net">Open portal</a> ·
+      <a href="https://console.firebase.google.com/project/dharoneacademy/">Firebase console</a>
+    </p>
   </div>
+
+  <!-- Paste your Firebase web config when ready, then uncomment -->
+  <!--
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "dharoneacademy.firebaseapp.com",
+      projectId: "dharoneacademy",
+      storageBucket: "dharoneacademy.appspot.com",
+      messagingSenderId: "YOUR_SENDER",
+      appId: "YOUR_APP_ID",
+      measurementId: "G-XXXX"
+    };
+    const app = initializeApp(firebaseConfig);
+    logEvent(getAnalytics(app), "landing_view");
+  </script>
+  -->
 </body>
 </html>
