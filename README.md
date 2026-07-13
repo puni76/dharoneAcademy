@@ -4,7 +4,10 @@ ASP.NET Core MVC (.NET 8) academy website + student portal with SQL Server.
 
 **Brand:** navy `#002147` + gold `#C9A227`  
 **GitHub:** https://github.com/puni76/dharoneAcademy  
-**Firebase console:** https://console.firebase.google.com/project/dharoneacademy/
+**Firebase console:** https://console.firebase.google.com/project/dharoneacademy/  
+**Firebase Hosting:** https://dharoneacademy.web.app
+
+> **Full project bible:** see **[PROJECT.md](PROJECT.md)** (architecture, DB, routes, Firebase, Azure-later steps, troubleshooting).
 
 ## Features
 
@@ -15,21 +18,23 @@ ASP.NET Core MVC (.NET 8) academy website + student portal with SQL Server.
 - Students CRUD (Admin)
 - Contact enquiries stored in SQL Server
 - Fully responsive production UI with academy logo & images
+- Firebase Analytics wired
+- Azure deploy script ready (run after you get a subscription)
 
 ## Tech stack
 
 - ASP.NET Core MVC (.NET 8)
 - Entity Framework Core + SQL Server
 - Cookie authentication + roles (`Admin`, `Student`)
+- Firebase Analytics + Hosting landing
 
 ## Quick start (local)
 
 1. Install .NET 8 SDK and SQL Server Express **or** LocalDB.
-2. Update connection string in `appsettings.json` / `appsettings.Development.json`.
-3. Run:
+2. Run:
 
 ```bash
-cd DharoneAcademy   # or project root
+cd C:\Users\Dell\source\repos\dharoneAcademy
 dotnet restore
 dotnet run
 ```
@@ -57,60 +62,23 @@ Server=(localdb)\mssqllocaldb;Database=DharoneAcademy;Trusted_Connection=True;Tr
 
 On first run the app creates the database and seeds demo data.
 
-## Firebase vs ASP.NET hosting (important)
+## Hosting plan
 
-[Firebase Hosting](https://console.firebase.google.com/project/dharoneacademy/) is excellent for **static** sites. It does **not** run ASP.NET Core + SQL Server.
+| Piece | Now | Later (after Azure subscription) |
+|-------|-----|-----------------------------------|
+| Full ASP.NET + SQL portal | `dotnet run` locally | Azure App Service + Azure SQL |
+| Analytics | Firebase (live) | same |
+| Static landing | https://dharoneacademy.web.app | redirect to Azure URL |
 
-### Full Azure + Firebase guide
+### Deploy to Azure when ready
 
-See **[docs/AZURE_FIREBASE_DEPLOYMENT.md](docs/AZURE_FIREBASE_DEPLOYMENT.md)** for:
-
-- Firebase Analytics web app config
-- Azure SQL + App Service deploy
-- Custom domain / HTTPS
-- GitHub Actions publish profile setup
-
-### Recommended production setup
-
-1. **ASP.NET app + SQL Server** → Azure App Service + Azure SQL (or Windows Server / IIS + SQL Server Express/Full)
-2. **Firebase** → Analytics on every page (`_FirebaseAnalytics.cshtml`), optional static landing mirror (`firebase-hosting/`)
-
-Paste your Firebase web config into `appsettings.json` under `Firebase` (or Azure App Settings). Analytics stays disabled until placeholders are replaced.
-
-Firebase web app **Dharone Academy Web** is already registered on project `dharoneacademy` and wired in `appsettings.json` (`measurementId`: `G-LV6V344NZH`).
-
-Deploy static Firebase placeholder:
-
-```bash
-npm i -g firebase-tools
-firebase login
-firebase use dharoneacademy
-firebase deploy --only hosting
+```powershell
+az login
+cd C:\Users\Dell\source\repos\dharoneAcademy
+.\scripts\deploy-azure.ps1
 ```
 
-Then point the Firebase page CTA / redirect to your Azure App Service URL.
-
-## Deploy ASP.NET (Azure sketch)
-
-```bash
-dotnet publish -c Release -o ./publish
-# Deploy publish folder to Azure App Service / IIS
-# Set ConnectionStrings__DefaultConnection in App Settings
-```
-
-GitHub Actions workflow: `.github/workflows/azure-deploy.yml`  
-Secret required: `AZURE_WEBAPP_PUBLISH_PROFILE`
-
-## Project structure
-
-```text
-Controllers/   Home, Account, Dashboard, Students, DailyTasks, Contact
-Models/        Users, StudentProfiles, DailyTasks, ContactEnquiries
-Views/         Public site + portal UI
-Data/          EF Core DbContext + seed
-wwwroot/       CSS, JS, brand images
-firebase-hosting/  Static Firebase entry
-```
+Details: [PROJECT.md §16](PROJECT.md#16-azure-deployment-do-later) and [docs/AZURE_FIREBASE_DEPLOYMENT.md](docs/AZURE_FIREBASE_DEPLOYMENT.md)
 
 ## Contact (from academy materials)
 
