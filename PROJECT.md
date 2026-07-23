@@ -8,6 +8,9 @@ This single document explains the **entire project** from idea → code → loca
 
 ---
 
+Admin: admin@dharoneacademy.com / Admin@123
+Student: student@dharoneacademy.com / Student@123
+
 ## Table of contents
 
 1. [Project overview](#1-project-overview)
