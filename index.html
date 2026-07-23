@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dharone Academy</title>
+  <!-- Update after Azure deploy to your App Service URL -->
+  <meta http-equiv="refresh" content="4;url=https://www.dharoneacademy.com" />
+  <style>
+    :root { --navy:#002147; --gold:#c9a227; }
+    body {
+      font-family: system-ui, sans-serif; background: linear-gradient(145deg, #00152d, var(--navy));
+      color: #fff; display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; padding: 2rem;
+    }
+    a { color: var(--gold); font-weight: 700; }
+    .card {
+      max-width: 520px; background: rgba(255,255,255,.06); border: 1px solid rgba(201,162,39,.35);
+      border-radius: 18px; padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Dharone Academy</h1>
+    <p>Learn • Build • Innovate • Succeed</p>
+    <p>Redirecting to the academy portal…</p>
+    <p>
+      <a href="https://www.dharoneacademy.com">www.dharoneacademy.com</a> ·
+      <a href="https://console.firebase.google.com/project/dharoneacademy/">Firebase console</a>
+    </p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCZ7KiQydppwCaSuLz5o8k3Rrx8B8a7ZsM",
+      authDomain: "dharoneacademy.firebaseapp.com",
+      projectId: "dharoneacademy",
+      storageBucket: "dharoneacademy.firebasestorage.app",
+      messagingSenderId: "845517575019",
+      appId: "1:845517575019:web:22707a0cb2bf0b9decf22e",
+      measurementId: "G-LV6V344NZH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    logEvent(getAnalytics(app), "landing_view", { source: "firebase_hosting" });
+  </script>
+</body>
+</html>
