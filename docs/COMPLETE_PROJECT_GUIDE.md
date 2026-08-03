@@ -3,7 +3,7 @@
 This document explains the **entire project end-to-end**: what it is, how every layer works (starting at `Program.cs`), the data model, authentication, every controller/route, the frontend, configuration, and finally how it is built and deployed to production.
 
 It is written to be readable by someone who has never seen the codebase before.
-
+http://dharoneacademy.runasp.net/
 ---
 
 ## Table of contents
