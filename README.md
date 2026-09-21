@@ -4,10 +4,11 @@ ASP.NET Core MVC (.NET 8) academy website + student portal with SQL Server.
 
 **Brand:** navy `#002147` + gold `#C9A227`  
 **GitHub:** https://github.com/puni76/dharoneAcademy  
+**Live portal (MonsterASP):** http://dharoneacademy.runasp.net/  
 **Firebase console:** https://console.firebase.google.com/project/dharoneacademy/  
-**Firebase Hosting:** https://dharoneacademy.web.app
+**Firebase Hosting (landing → portal):** https://dharoneacademy.web.app
 
-> **Full project bible:** see **[PROJECT.md](PROJECT.md)** (architecture, DB, routes, Firebase, Azure-later steps, troubleshooting).
+> **Full project bible:** see **[PROJECT.md](PROJECT.md)**. Hosting / DNS notes: **[docs/HOSTING.md](docs/HOSTING.md)**.
 
 ## Features
 
@@ -64,11 +65,13 @@ On first run the app creates the database and seeds demo data.
 
 ## Hosting plan
 
-| Piece | Now | Later (after Azure subscription) |
-|-------|-----|-----------------------------------|
-| Full ASP.NET + SQL portal | `dotnet run` locally | Azure App Service + Azure SQL |
+| Piece | Now | Later |
+|-------|-----|--------|
+| Full ASP.NET + SQL portal | http://dharoneacademy.runasp.net/ (MonsterASP) | Azure App Service + Azure SQL (optional) |
 | Analytics | Firebase (live) | same |
-| Static landing | https://dharoneacademy.web.app | redirect to Azure URL |
+| Static landing | https://dharoneacademy.web.app → redirects to portal | custom domain when DNS is registered |
+
+See [docs/HOSTING.md](docs/HOSTING.md) for DNS (`dharoneacademy.com`) and Azure steps.
 
 ### Deploy to Azure when ready
 
@@ -84,7 +87,7 @@ Details: [PROJECT.md §16](PROJECT.md#16-azure-deployment-do-later) and [docs/AZ
 
 - Phone: +91 82174 15668  
 - Email: dharoneacademy26@gmail.com  
-- Web: www.dharoneacademy.com  
+- Web: http://dharoneacademy.runasp.net/ (custom domain pending DNS)  
 - Location: Bengaluru, Karnataka, India  
 
 © Dharone Technologies Pvt Ltd

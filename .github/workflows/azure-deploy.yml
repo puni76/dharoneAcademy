@@ -1,8 +1,7 @@
 name: Deploy to Azure App Service
 
+# Manual only until Azure App Service + AZURE_WEBAPP_PUBLISH_PROFILE exist.
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 env:
