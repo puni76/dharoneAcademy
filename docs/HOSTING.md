@@ -4,10 +4,10 @@
 
 | URL | Role | Status |
 |-----|------|--------|
-| http://dharoneacademy.runasp.net/ | Full ASP.NET Core portal (MonsterASP) | **Working** (home + login verified) |
-| https://dharoneacademy.web.app | Firebase static landing | Redirects to the MonsterASP portal |
-| https://puni76.github.io/dharoneAcademy/ | GitHub Pages mirror of landing | Enabled via `gh-pages` branch |
-| https://www.dharoneacademy.com | Brand custom domain | **Not registered / no DNS** — do not use as redirect until fixed |
+| http://dharoneacademy.runasp.net/ | Full ASP.NET Core portal (MonsterASP) | **Working** (home, login, SQL features) |
+| https://dharoneacademy.web.app | Firebase static **marketing home** | Shows academy home (no redirect splash) |
+| https://puni76.github.io/dharoneAcademy/ | GitHub Pages mirror of marketing home | Same as Firebase `firebase-hosting/` |
+| https://www.dharoneacademy.com | Brand custom domain | **Not registered / no DNS** — do not use until fixed |
 
 HTTPS on `dharoneacademy.runasp.net` currently fails TLS on this free MonsterASP hostname; use **http://** until Let’s Encrypt is enabled in the MonsterASP control panel.
 
@@ -15,13 +15,14 @@ HTTPS on `dharoneacademy.runasp.net` currently fails TLS on this free MonsterASP
 
 ```text
 Visitor
-  ├─► Firebase Hosting / GitHub Pages  →  redirect  →  MonsterASP portal
+  ├─► Firebase Hosting / GitHub Pages  →  static marketing home
+  │         └─► Join / Sign in / Program / Contact → MonsterASP portal
   └─► (optional later) www.dharoneacademy.com DNS  →  MonsterASP or Azure
 ```
 
-Firebase Hosting and GitHub Pages **cannot** run ASP.NET + SQL. They only host the landing page in `firebase-hosting/`.
+Firebase Hosting and GitHub Pages **cannot** run ASP.NET + SQL. They host the static marketing home in `firebase-hosting/` (HTML + `css/` + `images/` + `js/`). Auth, contact forms, and the student portal stay on MonsterASP.
 
-## Redeploy Firebase landing
+## Redeploy Firebase home
 
 ```powershell
 cd C:\Users\Dell\source\repos\dharoneAcademy
@@ -31,7 +32,7 @@ firebase use dharoneacademy
 firebase deploy --only hosting
 ```
 
-Landing redirect target is set in `firebase-hosting/index.html`.
+Static home source: `firebase-hosting/index.html`. Portal links point at `http://dharoneacademy.runasp.net/...`.
 
 ## MonsterASP CI
 
@@ -46,8 +47,8 @@ Today the domain has **no public DNS** (NXDOMAIN). When you own it:
 1. MonsterASP control panel → Domains → add `www.dharoneacademy.com` (Premium may be required).
 2. At the registrar, set DNS as MonsterASP shows (typically apex **A** + `www` **CNAME** to your `siteXXXX.siteasp.net` / `*.runasp.net`).
 3. Enable free HTTPS in MonsterASP.
-4. Update `firebase-hosting/index.html` redirect to `https://www.dharoneacademy.com` and redeploy hosting.
-5. Update `appsettings.json` → `Academy:Website` and footer links in Views.
+4. Point the custom domain at the full portal (or keep Firebase for marketing and CNAME apex as preferred).
+5. Update `appsettings.json` → `Academy:Website` and footer links in Views / static home.
 
 ## Azure — do later (credentials required)
 

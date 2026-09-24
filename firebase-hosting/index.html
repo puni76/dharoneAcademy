@@ -2,34 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dharone Academy</title>
-  <!-- Live ASP.NET portal on MonsterASP (custom domain / Azure later) -->
-  <meta http-equiv="refresh" content="2;url=http://dharoneacademy.runasp.net/" />
-  <style>
-    :root { --navy:#002147; --gold:#c9a227; }
-    body {
-      font-family: system-ui, sans-serif; background: linear-gradient(145deg, #00152d, var(--navy));
-      color: #fff; display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; padding: 2rem;
-    }
-    a { color: var(--gold); font-weight: 700; }
-    .card {
-      max-width: 520px; background: rgba(255,255,255,.06); border: 1px solid rgba(201,162,39,.35);
-      border-radius: 18px; padding: 2rem;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dharone Academy — 3-month internship & training. Bridging academic knowledge to industry demands." />
+  <title>Home | Dharone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/site.css" />
 </head>
-<body>
-  <div class="card">
-    <h1>Dharone Academy</h1>
-    <p>Learn • Build • Innovate • Succeed</p>
-    <p>Redirecting to the academy portal…</p>
-    <p>
-      <a href="http://dharoneacademy.runasp.net/">Open portal</a> ·
-      <a href="https://console.firebase.google.com/project/dharoneacademy/">Firebase console</a>
-    </p>
-  </div>
+<body class="site-body">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-lockup" href="/">
+        <img src="/images/logo.png" alt="Dharone Academy" class="brand-logo" />
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menu" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" data-nav>
+        <a href="/" class="active">Home</a>
+        <a href="http://dharoneacademy.runasp.net/Home/Program">Program</a>
+        <a href="http://dharoneacademy.runasp.net/Home/Curriculum">Curriculum</a>
+        <a href="http://dharoneacademy.runasp.net/Home/Career">Career</a>
+        <a href="http://dharoneacademy.runasp.net/Home/About">About</a>
+        <a href="http://dharoneacademy.runasp.net/Contact">Contact</a>
+        <a href="http://dharoneacademy.runasp.net/Account/Login">Sign in</a>
+        <a class="btn-gold" href="http://dharoneacademy.runasp.net/Account/Register">Join Now</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="hero-media" style="background-image:url('/images/hero.jpg')"></div>
+      <div class="hero-shade"></div>
+      <div class="container hero-content">
+        <img src="/images/logo.png" alt="Dharone Academy" class="hero-brand" />
+        <p class="eyebrow">3-Month Internship &amp; Training</p>
+        <h1>Bridging the gap: academic knowledge to industry demands.</h1>
+        <p class="lead">From classroom to career with live, practical projects. Perfect for BCA, MCA, BE &amp; Diploma students.</p>
+        <div class="hero-cta">
+          <a class="btn-gold lg" href="http://dharoneacademy.runasp.net/Account/Register">Join the Program</a>
+          <a class="btn-ghost-light lg" href="http://dharoneacademy.runasp.net/Home/Program">View Program</a>
+        </div>
+        <div class="hero-meta">
+          <span>Duration: 3 Months</span>
+          <span>Investment: ₹30K</span>
+          <span>Sessions from 6:00 PM</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="split-copy">
+          <p class="eyebrow gold">Why Dharone Academy</p>
+          <h2>Official internship certificate through Dharone Technologies Pvt Ltd.</h2>
+          <p>Daily tasks &amp; updates, industry mentors, and corporate-level capstone projects designed to make you job-ready.</p>
+          <ul class="checklist">
+            <li>Daily sessions from 6:00 PM — ideal for students</li>
+            <li>Live project mentorship &amp; portfolio building</li>
+            <li>Resume, LinkedIn &amp; mock interview support</li>
+            <li>Placement assistance with real industry alignment</li>
+          </ul>
+          <a class="btn-navy" href="http://dharoneacademy.runasp.net/Contact">Talk to admissions</a>
+        </div>
+        <div class="split-visual">
+          <img src="/images/classroom.jpg" alt="Students learning in classroom" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow gold">Tech stack</p>
+          <h2>What you will master</h2>
+        </div>
+        <div class="stack-grid">
+          <article>
+            <h3>Front-End</h3>
+            <p>HTML5 · CSS3 · JavaScript · React JS</p>
+          </article>
+          <article>
+            <h3>Back-End</h3>
+            <p>.NET · ASP.NET Core MVC</p>
+          </article>
+          <article>
+            <h3>Database</h3>
+            <p>SQL Server · Practical CRUD systems</p>
+          </article>
+          <article>
+            <h3>Delivery</h3>
+            <p>Live projects · Daily tracker · Mentorship</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow gold">Campus to career</p>
+          <h2>Gallery &amp; learning culture</h2>
+        </div>
+        <div class="gallery">
+          <img src="/images/gallery-1.jpg" alt="Team collaboration" />
+          <img src="/images/coding.jpg" alt="Coding practice" />
+          <img src="/images/mentor.jpg" alt="Mentor guidance" />
+          <img src="/images/project.jpg" alt="Project presentation" />
+          <img src="/images/career.jpg" alt="Career workshop" />
+          <img src="/images/gallery-2.jpg" alt="Workshop session" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div>
+          <h2>Ready to move from classroom to career?</h2>
+          <p>Enroll in the 3-month internship program and start building production-ready skills.</p>
+        </div>
+        <a class="btn-gold lg" href="http://dharoneacademy.runasp.net/Account/Register">Apply Now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="/images/logo.png" alt="Dharone Academy" class="footer-logo" />
+        <p class="footer-tag">Learn • Build • Innovate • Succeed</p>
+        <p>Bridging academic knowledge to industry demands with live, practical projects.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="http://dharoneacademy.runasp.net/Home/Program">Internship Program</a>
+        <a href="http://dharoneacademy.runasp.net/Home/Curriculum">Curriculum</a>
+        <a href="http://dharoneacademy.runasp.net/Home/Career">Career Building</a>
+        <a href="http://dharoneacademy.runasp.net/Contact">Contact</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>+91 82174 15668</p>
+        <p>dharoneacademy26@gmail.com</p>
+        <p><a href="http://dharoneacademy.runasp.net/">dharoneacademy.runasp.net</a></p>
+        <p>Bengaluru, Karnataka, India</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Dharone Technologies Pvt Ltd. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="/js/site.js"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
@@ -45,7 +172,7 @@
     };
 
     const app = initializeApp(firebaseConfig);
-    logEvent(getAnalytics(app), "landing_view", { source: "firebase_hosting" });
+    logEvent(getAnalytics(app), "landing_view", { source: "firebase_hosting_home" });
   </script>
 </body>
 </html>

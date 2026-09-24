@@ -6,7 +6,7 @@ ASP.NET Core MVC (.NET 8) academy website + student portal with SQL Server.
 **GitHub:** https://github.com/puni76/dharoneAcademy  
 **Live portal (MonsterASP):** http://dharoneacademy.runasp.net/  
 **Firebase console:** https://console.firebase.google.com/project/dharoneacademy/  
-**Firebase Hosting (landing → portal):** https://dharoneacademy.web.app
+**Firebase Hosting (static marketing home):** https://dharoneacademy.web.app
 
 > **Full project bible:** see **[PROJECT.md](PROJECT.md)**. Hosting / DNS notes: **[docs/HOSTING.md](docs/HOSTING.md)**.
 
@@ -69,7 +69,7 @@ On first run the app creates the database and seeds demo data.
 |-------|-----|--------|
 | Full ASP.NET + SQL portal | http://dharoneacademy.runasp.net/ (MonsterASP) | Azure App Service + Azure SQL (optional) |
 | Analytics | Firebase (live) | same |
-| Static landing | https://dharoneacademy.web.app → redirects to portal | custom domain when DNS is registered |
+| Static marketing home | https://dharoneacademy.web.app (Join/Sign in → portal) | custom domain when DNS is registered |
 
 See [docs/HOSTING.md](docs/HOSTING.md) for DNS (`dharoneacademy.com`) and Azure steps.
 
